@@ -1,0 +1,17 @@
+config.yaml
+
+# Created by https://www.gitignore.io/api/crystal
+# Edit at https://www.gitignore.io/?templates=crystal
+
+### Crystal ###
+/docs/
+/lib/
+/bin/
+/.shards/
+*.dwarf
+
+# Libraries don't need dependency lock
+# Dependencies will be locked in application that uses them
+/shard.lock
+
+# End of https://www.gitignore.io/api/crystal
