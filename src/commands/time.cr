@@ -1,11 +1,11 @@
 require "./command_base"
 
-class PingCommand < CommandBase
+class TimeCommand < CommandBase
   def initialize
-    super "ping"
+    super "time"
   end
 
   def run
-    "Pong!"
+    Time.local.to_s
   end
 end
