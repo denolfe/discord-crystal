@@ -4,10 +4,14 @@ class FlipCommand < CommandBase
   end
 
   def run(args : Array(String)?)
-    return if args.nil?
-    choice = args.first
+    if args.nil?
+      return Discord::Embed.new(description: "heads or tails must be provided", colour: EmbedColors.red)
+    end
     responses = ["heads", "tails"]
-    return unless responses.includes? choice
+    choice = args.first.downcase
+    if !responses.includes? choice 
+      return Discord::Embed.new(description: "Heads or Tails must be provided", colour: EmbedColors.red)
+    end
 
     result = responses.sample
     color = choice == result ? EmbedColors.green : EmbedColors.red
