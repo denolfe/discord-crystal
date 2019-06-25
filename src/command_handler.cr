@@ -1,4 +1,5 @@
 require "./commands/*"
+require "./reactions/nuts_reaction"
 
 class CommandHandler
   def initialize(@client : Discord::Client, @prefix : String)
