@@ -3,7 +3,7 @@ class TimeCommand < CommandBase
     super "time"
   end
 
-  def run(args : (Array(String) | Nil))
+  def run(args : Array(String)?)
     Discord::Embed.new(description: Time.local.to_s, colour: EmbedColors.green)
   end
 end

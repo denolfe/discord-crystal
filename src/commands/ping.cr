@@ -3,7 +3,7 @@ class PingCommand < CommandBase
     super "ping"
   end
 
-  def run(args : (Array(String) | Nil))
+  def run(args : Array(String)?)
     Discord::Embed.new(description: "Pong!", colour: EmbedColors.green)
   end
 end

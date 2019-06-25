@@ -3,7 +3,7 @@ class EightBallCommand < CommandBase
     super "8ball"
   end
 
-  def run(args : (Array(String) | Nil))
+  def run(args : Array(String)?)
     responses = [
       # Affirmative
       EightBallResponse.new("It is certain", EmbedColors.green),

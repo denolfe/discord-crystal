@@ -3,7 +3,7 @@ class FlipCommand < CommandBase
     super "flip"
   end
 
-  def run(args : (Array(String) | Nil))
+  def run(args : Array(String)?)
     return if args.nil?
     choice = args.first
     responses = ["heads", "tails"]
@@ -12,6 +12,6 @@ class FlipCommand < CommandBase
     result = responses.sample
     color = choice == result ? EmbedColors.green : EmbedColors.red
 
-    Discord::Embed.new(description: result, colour: color)
+    Discord::Embed.new(description: result.capitalize, colour: color)
   end
 end
