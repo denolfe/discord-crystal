@@ -36,12 +36,12 @@ class EightBallCommand < CommandBase
 
     Discord::Embed.new(description: response.text, colour: response.embed_color)
   end
-end
 
-class EightBallResponse
-  property text : String
-  property embed_color : UInt32
+  struct EightBallResponse
+    property text : String
+    property embed_color : UInt32
 
-  def initialize(@text : String, @embed_color : UInt32)
+    def initialize(@text : String, @embed_color : UInt32)
+    end
   end
 end
