@@ -1,5 +1,4 @@
 require "./commands/*"
-require "./reactions/nuts_reaction"
 
 class CommandHandler
   def initialize(@client : Discord::Client, @prefix : String)
@@ -17,7 +16,7 @@ class CommandHandler
     found_command = @commands.find { |c| c.name == command_name }
     if found_command
       puts "Running #{found_command.name} command"
-      @client.create_message(message.channel_id, found_command.run)
+      @client.create_message(message.channel_id, "", found_command.run)
     else
       puts "'#{@prefix + command_name}' command not found."
     end

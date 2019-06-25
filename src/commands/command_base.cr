@@ -4,6 +4,5 @@ abstract class CommandBase
   def initialize(@name : String)
   end
 
-  abstract def run
-
+  abstract def run : Discord::Embed
 end

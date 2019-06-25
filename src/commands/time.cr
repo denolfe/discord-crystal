@@ -1,4 +1,5 @@
 require "./command_base"
+require "../utils/embed_colors"
 
 class TimeCommand < CommandBase
   def initialize
@@ -6,6 +7,6 @@ class TimeCommand < CommandBase
   end
 
   def run
-    Time.local.to_s
+    Discord::Embed.new(description: Time.local.to_s, colour: EmbedColors.green)
   end
 end

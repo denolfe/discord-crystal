@@ -1,4 +1,5 @@
 require "./command_base"
+require "../utils/embed_colors"
 
 class PingCommand < CommandBase
   def initialize
@@ -6,6 +7,6 @@ class PingCommand < CommandBase
   end
 
   def run
-    "Pong!"
+    Discord::Embed.new(description: "Pong!", colour: EmbedColors.green)
   end
 end
