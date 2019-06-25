@@ -4,7 +4,8 @@ class CommandHandler
   def initialize(@client : Discord::Client, @prefix : String)
     @commands = [PingCommand.new,
                  TimeCommand.new,
-                 EightBallCommand.new]
+                 EightBallCommand.new,
+                 RollCommand.new]
     puts available_commands
   end
 
