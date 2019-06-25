@@ -1,3 +1,5 @@
+require "../utils/embed_colors"
+
 abstract class CommandBase
   getter name : String
 

@@ -1,4 +1,4 @@
-require "./commands/*"
+require "../commands/*"
 
 class CommandHandler
   def initialize(@client : Discord::Client, @prefix : String)

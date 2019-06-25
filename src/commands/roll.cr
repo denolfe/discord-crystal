@@ -1,5 +1,3 @@
-require "../utils/embed_colors"
-
 class RollCommand < CommandBase
   def initialize
     super "roll"

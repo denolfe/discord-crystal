@@ -1,4 +1,4 @@
-require "./reactions/nuts_reaction"
+require "../reactions/*"
 
 class ReactionHandler
   def initialize(@client : Discord::Client)

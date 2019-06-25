@@ -1,5 +1,3 @@
-require "../utils/embed_colors"
-
 class PingCommand < CommandBase
   def initialize
     super "ping"

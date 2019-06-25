@@ -1,5 +1,3 @@
-require "../utils/embed_colors"
-
 class TimeCommand < CommandBase
   def initialize
     super "time"

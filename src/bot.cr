@@ -1,7 +1,6 @@
 require "yaml"
 require "discordcr"
-require "./command_handler"
-require "./reaction_handler"
+require "./handlers/*"
 
 config = YAML.parse(File.read("config.yaml"))
 token = config["token"].as_s
