@@ -5,7 +5,8 @@ class CommandHandler
     @commands = [PingCommand.new,
                  TimeCommand.new,
                  EightBallCommand.new,
-                 RollCommand.new]
+                 RollCommand.new,
+                 FlipCommand.new]
     puts available_commands
   end
 
@@ -13,12 +14,18 @@ class CommandHandler
     return unless message.content.starts_with? @prefix
 
     # TODO: Need more complex handling for args
-    command_name = get_command_name(message.content)
+    command_name, args = parse_command(message.content)
+    return if command_name.nil?
 
     found_command = @commands.find { |c| c.name == command_name }
     if found_command
       puts "Running #{found_command.name} command"
-      @client.create_message(message.channel_id, "", found_command.run)
+      begin
+        embed = found_command.run args
+        @client.create_message(message.channel_id, "", embed)
+      rescue exception
+        puts "Failed handling #{found_command.name} command"
+      end
     else
       puts "'#{@prefix + command_name}' command not found."
     end
@@ -29,10 +36,19 @@ class CommandHandler
     puts "Available commands: #{command_list.join(", ")}"
   end
 
-  private def get_command_name(message_content : String) : String
-    message_content[1..message_content.size]
-      .split(' ')
-      .first
-      .downcase
+  private def parse_command(message_content : String)
+    match = /^\.([\w+]+)(.*)/.match(message_content)
+
+    if match
+      command_name = match[1].downcase
+      if match[2]?
+        args = match[2].strip.downcase.split(' ')
+      else
+        args = nil
+      end
+      return command_name, args
+    else
+      return nil, nil
+    end
   end
 end
