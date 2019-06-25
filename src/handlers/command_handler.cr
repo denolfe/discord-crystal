@@ -8,6 +8,7 @@ class CommandHandler
                  RollCommand.new,
                  FlipCommand.new,
                  UptimeCommand.new,
+                 ChooseCommand.new,
     ]
     puts available_commands
   end
