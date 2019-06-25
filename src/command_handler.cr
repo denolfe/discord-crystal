@@ -3,7 +3,8 @@ require "./commands/*"
 class CommandHandler
   def initialize(@client : Discord::Client, @prefix : String)
     @commands = [PingCommand.new,
-                 TimeCommand.new]
+                 TimeCommand.new,
+                 EightBallCommand.new]
     puts available_commands
   end
 

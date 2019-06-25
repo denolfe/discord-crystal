@@ -1,4 +1,3 @@
-require "./command_base"
 require "../utils/embed_colors"
 
 class PingCommand < CommandBase
