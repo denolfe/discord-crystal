@@ -1,9 +1,8 @@
-class EightBallCommand < CommandBase
-  def initialize
-    super "8ball"
-  end
+struct EightBallCommand < Bot::Command
+  self.name = "8ball"
+  self.description = "Shake magic 8-ball"
 
-  def run(args : Array(String)?)
+  def self.execute(args : Array(String)?)
     responses = [
       # Affirmative
       EightBallResponse.new("It is certain", EmbedColors.green),

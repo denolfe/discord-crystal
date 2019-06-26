@@ -1,9 +1,8 @@
-class PingCommand < CommandBase
-  def initialize
-    super "ping"
-  end
+struct PingCommand < Bot::Command
+  self.name = "ping"
+  self.description = "Pings the bot"
 
-  def run(args : Array(String)?)
+  def self.execute(args : Array(String)?)
     Discord::Embed.new(description: "Pong!", colour: EmbedColors.green)
   end
 end

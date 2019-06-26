@@ -1,15 +1,14 @@
-class FlipCommand < CommandBase
-  def initialize
-    super "flip"
-  end
+struct FlipCommand < Bot::Command
+  self.name = "flip"
+  self.description = "Choose a side and flip a coin"
 
-  def run(args : Array(String)?)
+  def self.execute(args : Array(String)?)
     if args.nil?
       return Discord::Embed.new(description: "heads or tails must be provided", colour: EmbedColors.red)
     end
     responses = ["heads", "tails"]
     choice = args.first.downcase
-    if !responses.includes? choice 
+    if !responses.includes? choice
       return Discord::Embed.new(description: "Heads or Tails must be provided", colour: EmbedColors.red)
     end
 

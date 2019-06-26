@@ -2,15 +2,7 @@ require "../commands/*"
 
 class CommandHandler
   def initialize(@client : Discord::Client, @prefix : String)
-    @commands = [PingCommand.new,
-                 TimeCommand.new,
-                 EightBallCommand.new,
-                 RollCommand.new,
-                 FlipCommand.new,
-                 UptimeCommand.new,
-                 ChooseCommand.new,
-    ]
-    puts available_commands
+    puts Bot::Registry.to_s
   end
 
   def find_and_execute_command(message : Discord::Message)
@@ -20,11 +12,11 @@ class CommandHandler
     command_name, args = parse_command(message.content)
     return if command_name.nil?
 
-    found_command = @commands.find { |c| c.name == command_name }
+    found_command = Bot::Registry.find command_name
     if found_command
-      puts "Running #{found_command.name} command"
+      puts "Running '#{found_command.name}' command"
       begin
-        embed = found_command.run args
+        embed = found_command.execute args
         @client.create_message(message.channel_id, "", embed)
       rescue exception
         puts "Failed handling #{found_command.name} command"
@@ -32,11 +24,6 @@ class CommandHandler
     else
       puts "'#{@prefix + command_name}' command not found."
     end
-  end
-
-  def available_commands
-    command_list = @commands.map { |c| "#{@prefix}#{c.name}" }
-    puts "Available commands: #{command_list.join(", ")}"
   end
 
   private def parse_command(message_content : String)

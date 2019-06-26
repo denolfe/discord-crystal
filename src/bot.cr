@@ -7,6 +7,8 @@ token = config["token"].as_s
 prefix = config["prefix"].as_s
 client = Discord::Client.new(token: "Bot #{token}", client_id: 272825402379206657_u64)
 
+START_TIME = Time.utc_now
+
 command_handler = CommandHandler.new(client, prefix)
 reaction_handler = ReactionHandler.new(client)
 

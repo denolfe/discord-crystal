@@ -1,9 +1,8 @@
-class TimeCommand < CommandBase
-  def initialize
-    super "time"
-  end
+struct TimeCommand < Bot::Command
+  self.name = "time"
+  self.description = "Displays the bot's time"
 
-  def run(args : Array(String)?)
+  def self.execute(args : Array(String)?)
     Discord::Embed.new(description: Time.local.to_s, colour: EmbedColors.green)
   end
 end

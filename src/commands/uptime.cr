@@ -1,11 +1,9 @@
-class UptimeCommand < CommandBase
-  def initialize
-    super "uptime"
-    @start_time = Time.utc_now
-  end
+struct UptimeCommand < Bot::Command
+  self.name = "uptime"
+  self.description = "Displays the bot's uptime"
 
-  def run(args : Array(String)?)
-    uptime = Time.utc_now - @start_time
+  def self.execute(args : Array(String)?)
+    uptime = Time.utc_now - START_TIME
     formatted = "#{uptime.days} days #{uptime.hours}h#{uptime.minutes}m"
     Discord::Embed.new(description: formatted, colour: EmbedColors.white)
   end
