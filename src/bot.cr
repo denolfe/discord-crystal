@@ -1,15 +1,10 @@
-require "yaml"
 require "discordcr"
+require "./utils/config_loader"
 require "./handlers/*"
 
-config = YAML.parse(File.read("config.yaml"))
-token = config["token"].as_s
-prefix = config["prefix"].as_s
-client = Discord::Client.new(token: "Bot #{token}", client_id: 272825402379206657_u64)
-
-START_TIME = Time.utc_now
-
-command_handler = CommandHandler.new(client, prefix)
+ConfigLoader.load
+client = Discord::Client.new(token: "Bot #{ENV["DISCORD_TOKEN"]}", client_id: 272825402379206657_u64)
+command_handler = CommandHandler.new(client, ENV["PREFIX"])
 reaction_handler = ReactionHandler.new(client)
 
 client.on_message_create do |message|
@@ -17,4 +12,5 @@ client.on_message_create do |message|
   command_handler.find_and_execute_command(message)
 end
 
+START_TIME = Time.utc_now
 client.run

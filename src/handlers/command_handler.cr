@@ -8,7 +8,6 @@ class CommandHandler
   def find_and_execute_command(message : Discord::Message)
     return unless message.content.starts_with? @prefix
 
-    # TODO: Need more complex handling for args
     command_name, args = parse_command(message.content)
     return if command_name.nil?
 
