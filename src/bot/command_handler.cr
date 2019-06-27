@@ -27,7 +27,7 @@ class CommandHandler
   end
 
   private def parse_command(message_content : String)
-    match = /^\.([\w+]+)(.*)/.match(message_content)
+    match = /^.([\w+]+)(.*)/.match(message_content)
 
     if match
       command_name = match[1].downcase

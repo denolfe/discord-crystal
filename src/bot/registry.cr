@@ -9,9 +9,9 @@ module Bot
     # Displays the available commands.
     def self.to_s : String
       String.build do |str|
-        str.puts "Registered Commands:"
+        str.puts "Available Commands:"
         @@commands.each do |c|
-          str.puts "\t#{c.name} - #{c.description}"
+          str.puts "    #{c.name} - #{c.description}"
         end
       end
     end

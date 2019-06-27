@@ -1,6 +1,7 @@
 struct UptimeCommand < Bot::BaseCommand
   self.name = "uptime"
   self.description = "Displays the bot's uptime"
+  self.usage = "uptime"
 
   def self.execute(args : Array(String)?)
     uptime = Time.utc_now - START_TIME

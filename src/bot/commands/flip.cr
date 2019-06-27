@@ -1,6 +1,7 @@
 struct FlipCommand < Bot::BaseCommand
   self.name = "flip"
   self.description = "Choose a side and flip a coin"
+  self.usage = "flip <heads|tails>"
 
   def self.execute(args : Array(String)?)
     if args.nil?
