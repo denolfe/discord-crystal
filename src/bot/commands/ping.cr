@@ -1,4 +1,4 @@
-struct PingCommand < Bot::Command
+struct PingCommand < Bot::BaseCommand
   self.name = "ping"
   self.description = "Pings the bot"
 

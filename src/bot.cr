@@ -1,6 +1,8 @@
 require "discordcr"
-require "./utils/config_loader"
-require "./handlers/*"
+require "./bot/utils/config_loader"
+require "./bot/command_handler"
+require "./bot/reaction_handler"
+require "./bot/registry"
 
 ConfigLoader.load
 client = Discord::Client.new(token: "Bot #{ENV["DISCORD_TOKEN"]}", client_id: 272825402379206657_u64)

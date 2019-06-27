@@ -1,4 +1,4 @@
-struct EightBallCommand < Bot::Command
+struct EightBallCommand < Bot::BaseCommand
   self.name = "8ball"
   self.description = "Shake magic 8-ball"
 

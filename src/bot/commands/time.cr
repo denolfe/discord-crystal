@@ -1,4 +1,4 @@
-struct TimeCommand < Bot::Command
+struct TimeCommand < Bot::BaseCommand
   self.name = "time"
   self.description = "Displays the bot's time"
 

@@ -1,4 +1,5 @@
-require "../commands/*"
+require "./base_command"
+require "./commands/*"
 
 class CommandHandler
   def initialize(@client : Discord::Client, @prefix : String)
@@ -12,16 +13,16 @@ class CommandHandler
     return if command_name.nil?
 
     found_command = Bot::Registry.find command_name
-    if found_command
-      puts "Running '#{found_command.name}' command"
-      begin
-        embed = found_command.execute args
-        @client.create_message(message.channel_id, "", embed)
-      rescue exception
-        puts "Failed handling #{found_command.name} command"
-      end
-    else
+    if found_command.nil?
       puts "'#{@prefix + command_name}' command not found."
+      return
+    end
+    puts "Running '#{found_command.name}' command"
+    begin
+      embed = found_command.execute args
+      @client.create_message(message.channel_id, "", embed)
+    rescue exception
+      puts "Failed handling #{found_command.name} command"
     end
   end
 

@@ -1,6 +1,6 @@
 require "http/client"
 
-struct DadJoke < Bot::Command
+struct DadJoke < Bot::BaseCommand
   self.name = "dadjoke"
   self.description = "Random Dad Joke"
 

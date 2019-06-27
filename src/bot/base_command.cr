@@ -1,7 +1,7 @@
-require "../utils/embed_colors"
+require "./utils/embed_colors"
 
 module Bot
-  abstract struct Command
+  abstract struct BaseCommand
     # Name of the command.
     class_property name : String = ""
 

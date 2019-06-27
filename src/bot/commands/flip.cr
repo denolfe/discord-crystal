@@ -1,4 +1,4 @@
-struct FlipCommand < Bot::Command
+struct FlipCommand < Bot::BaseCommand
   self.name = "flip"
   self.description = "Choose a side and flip a coin"
 

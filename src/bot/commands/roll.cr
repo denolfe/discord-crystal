@@ -1,4 +1,4 @@
-struct RollCommand < Bot::Command
+struct RollCommand < Bot::BaseCommand
   self.name = "roll"
   self.description = "Roll a 6-sided die"
 

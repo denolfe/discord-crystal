@@ -1,4 +1,4 @@
-struct UptimeCommand < Bot::Command
+struct UptimeCommand < Bot::BaseCommand
   self.name = "uptime"
   self.description = "Displays the bot's uptime"
 

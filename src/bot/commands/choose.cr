@@ -1,4 +1,4 @@
-struct ThisOrThatCommand < Bot::Command
+struct ChooseCommand < Bot::BaseCommand
   self.name = "choose"
   self.description = "Chooses randomly between provided choices"
   self.usage = "!choose this that"
