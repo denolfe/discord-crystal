@@ -1,0 +1,17 @@
+image: "crystallang/crystal:0.29.0"
+
+cache:
+  paths:
+    - lib
+
+before_script:
+  - apt-get update -qq && apt-get install -y -qq libxml2-dev
+  - shards install
+
+build:
+  script:
+    - shards build -v
+
+test:
+  script:
+    - crystal spec
