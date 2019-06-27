@@ -19,9 +19,12 @@ module Bot
     # Returns the command with the given name.
     #
     # Raises if no command has that name.
-    def self.find(name : String) : Bot::Command.class
+    def self.find(name : String) : (Bot::Command.class | Nil)
       command_class = @@commands.find { |c| c.name == name }
-      raise "No command with the name '#{name}' has been registered" if command_class.nil?
+      if command_class.nil?
+        p "No command with the name '#{name}' has been registered"
+        return nil
+      end
       command_class
     end
   end
