@@ -1,0 +1,7 @@
+version: "3.7"
+services:
+  bot:
+    build: .
+    environment:
+      PREFIX: .
+      DISCORD_TOKEN: <DEPRECATED>
