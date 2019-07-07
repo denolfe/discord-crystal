@@ -4,6 +4,6 @@ struct PingCommand < Bot::BaseCommand
   self.usage = "ping"
 
   def self.execute(args : Array(String)?)
-    Discord::Embed.new(description: "Pong!", colour: EmbedColors.green)
+    Discord::Embed.new(description: "Pong!", colour: EmbedColors.white)
   end
 end
