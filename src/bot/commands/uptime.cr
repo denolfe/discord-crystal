@@ -5,7 +5,7 @@ struct UptimeCommand < Bot::BaseCommand
 
   def self.execute(args : Array(String)?)
     uptime = Time.utc_now - START_TIME
-    formatted = "#{uptime.days} days #{uptime.hours}h#{uptime.minutes}m"
+    formatted = "#{uptime.days} days #{uptime.hours}hrs #{uptime.minutes}mins"
     Discord::Embed.new(description: formatted, colour: EmbedColors.white)
   end
 end
