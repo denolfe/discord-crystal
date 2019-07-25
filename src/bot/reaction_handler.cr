@@ -1,5 +1,6 @@
 require "./reactions/autoreaction"
 require "./reactions/*"
+require "./emojis"
 
 class ReactionHandler
   def initialize(@client : Discord::Client)
