@@ -1,4 +1,7 @@
-FROM jrei/crystal-alpine
-COPY . .
+FROM crystallang/crystal:0.29.0 as builder
+COPY . ./
 RUN shards build --production --release --static
-ENTRYPOINT ["/bin/bot"]
+
+FROM alpine:3.10
+COPY --from=builder /bin/bot bot
+ENTRYPOINT ["/bot"]
