@@ -3,16 +3,14 @@ require "./reactions/*"
 require "./emojis"
 
 class ReactionHandler
-  def initialize(@client : Discord::Client)
-    @reactions = [
-      NutsReaction.new(@client),
-      CheersReaction.new(@client),
+  def call(payload, context)
+    reactions = [
+      NutsReaction.new(context[Discord::Client]),
+      CheersReaction.new(context[Discord::Client]),
     ]
-  end
-
-  def handle_message(message : Discord::Message)
-    @reactions.each do |reaction|
-      reaction.react(message)
+    reactions.each do |reaction|
+      reaction.react(payload)
     end
+    yield
   end
 end

@@ -11,7 +11,7 @@ targets:
 dependencies:
   discordcr:
     github: z64/discordcr
-    branch: crystal-0.28
+    branch: master
   dotenv:
     github: gdotdesign/cr-dotenv
 

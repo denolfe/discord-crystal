@@ -2,25 +2,24 @@ require "./base_command"
 require "./commands/*"
 
 class CommandHandler
-  def initialize(@client : Discord::Client, @prefix : String)
+  def initialize()
     puts Bot::Registry.to_s
   end
 
-  def find_and_execute_command(message : Discord::Message)
-    return unless message.content.starts_with? @prefix
-
-    command_name, args = parse_command(message.content)
+  def call(payload : Discord::Message, context : Discord::Context)
+    command_name, args = parse_command(payload.content)
     return if command_name.nil?
 
     found_command = Bot::Registry.find command_name
     if found_command.nil?
-      puts "'#{@prefix + command_name}' command not found."
+      puts "'#{command_name}' command not found." 
       return
     end
-    puts "Running '#{found_command.name}' command"
+    puts "Running '#{found_command.name}' command. Author: #{payload.author.username}. Content: #{payload.content}"
     begin
       embed = found_command.execute args
-      @client.create_message(message.channel_id, "", embed)
+      context[Discord::Client].create_message(payload.channel_id, "", embed)
+      yield
     rescue exception
       puts "Failed handling #{found_command.name} command"
     end
