@@ -1,4 +1,9 @@
 FROM jrei/crystal-alpine
 COPY . .
-RUN shards build --production --release --static
-ENTRYPOINT ["/bin/bot"]
+RUN apk --update add ca-certificates && \
+  shards build --production --release --static
+
+FROM alpine
+COPY --from=0 /etc/ssl/certs /etc/ssl/certs
+COPY --from=0 /bin/bot /
+ENTRYPOINT ["/bot"]
