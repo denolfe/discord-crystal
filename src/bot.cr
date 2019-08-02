@@ -9,6 +9,7 @@ ConfigLoader.load
 client = Discord::Client.new(token: "Bot #{ENV["DISCORD_TOKEN"]}", client_id: 272825402379206657_u64)
 
 client.on_message_create(
+  DiscordMiddleware::Error.new("Caught exception: %exception%"),
   ReactionHandler.new,
   DiscordMiddleware::Prefix.new(ENV["PREFIX"]),
   CommandHandler.new
