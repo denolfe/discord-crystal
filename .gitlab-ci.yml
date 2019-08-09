@@ -1,5 +1,5 @@
 variables:
-  crystal_image: crystallang/crystal:0.29.0
+  crystal_image: jrei/crystal-alpine
 
 stages:
   - build-and-test
@@ -11,7 +11,7 @@ cache:
 
 build-and-test:
   stage: build-and-test
-  image: crystallang/crystal:0.29.0
+  image: $crystal_image
   script:
     - apt-get update -qq && apt-get install -y -qq libxml2-dev
     - shards install
@@ -19,7 +19,7 @@ build-and-test:
 
 package:
   stage: package
-  image: jrei/crystal-alpine
+  image: $crystal_image
   script: 
     - shards install
     - shards build --production --release --static
