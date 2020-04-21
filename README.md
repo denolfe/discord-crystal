@@ -21,16 +21,16 @@ Configuration is done through environment variables, `.env` file is read if it e
 
 ### Commands
 
-- choose - Chooses randomly between provided choices
-- dadjoke - Random Dad Joke
-- 8ball - Shake magic 8-ball
-- flip - Choose a side and flip a coin
-- help - Displays all commands or details about specific command
-- ping - Pings the bot
-- roll - Roll a 6-sided die
-- time - Displays the bot's time
-- uptime - Displays the bot's uptime
-- ud - Urban Dictionary definition
+- `!choose` - Chooses randomly between provided choices
+- `!dadjoke` - Random Dad Joke
+- `!8ball` - Shake magic 8-ball
+- `!flip` - Choose a side and flip a coin
+- `!help` - Displays all commands or details about specific command
+- `!ping` - Pings the bot
+- `!roll` - Roll a 6-sided die
+- `!time` - Displays the bot's time
+- `!uptime` - Displays the bot's uptime
+- `!ud` - Urban Dictionary definition
 
 ### Auto-Reactions
 
