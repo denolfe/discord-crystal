@@ -1,6 +1,8 @@
-# Discord Bot
+# Discord Crystal
 
-General-use Discord bot written in Crystal
+[![Actions Status](https://github.com/denolfe/discord-crystal/workflows/Crystal%20CI/badge.svg)](https://github.com/denolfe/discord-crystal/actions)
+
+> General-use Discord bot written in Crystal
 
 ## Installation
 
